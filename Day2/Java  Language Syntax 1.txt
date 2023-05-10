@@ -1,0 +1,18 @@
+Java : Case Sensitive Language
+Syntax :
+class ClasssName{
+
+      returntype functionName/methodName(ArgumentList){
+		statement;
+	}
+}
+
+Naming Conventions
+ClassName : PascalCase  Example: RosieYoung
+Function Name : camelCase Example : rosieYoung
+
+---------------------------------------------------------
+Java Code starts executing from the function named "main"
+Syntax for "main" method
+public static void main(String args[])
+returntype : void : function is not returning anything
