@@ -7,10 +7,11 @@ class ClasssName{
 	}
 }
 
+------------------------------------------------------
 Naming Conventions
 ClassName : PascalCase  Example: RosieYoung
 Function Name : camelCase Example : rosieYoung
-
+variable Names : camelCase : Example : rosieYoung
 ---------------------------------------------------------
 Java Code starts executing from the function named "main"
 Syntax for "main" method
