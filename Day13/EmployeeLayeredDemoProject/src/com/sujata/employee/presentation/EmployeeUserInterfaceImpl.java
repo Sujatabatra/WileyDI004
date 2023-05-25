@@ -51,7 +51,12 @@ public class EmployeeUserInterfaceImpl implements EmployeeUserInterface {
 				System.out.println("Employee Not Added!");
 			break;
 		case 3:
-			System.out.println("This Module is under development");
+			System.out.println("Enter Employee ID whoes record you want to delete : ");
+			int id=scanner.nextInt();
+			if(bussinessLogic.deleteEmployee(id))
+				System.out.println("Record Deleted");
+			else
+				System.out.println("Employee with id "+id+" does not exist");
 			break;
 		case 4:
 			bussinessLogic.saveAllEmployees();

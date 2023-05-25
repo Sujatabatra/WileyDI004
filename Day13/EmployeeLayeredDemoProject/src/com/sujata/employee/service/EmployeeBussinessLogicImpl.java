@@ -35,7 +35,10 @@ public class EmployeeBussinessLogicImpl implements EmployeeBussinessLogic {
 
 	@Override
 	public boolean deleteEmployee(int id) {
-		// TODO Auto-generated method stub
+		for(Employee employee:employeeList) {
+			if(id==employee.getEmpId())
+				return employeeList.remove(employee);
+		}
 		return false;
 	}
 	
