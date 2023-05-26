@@ -7,6 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.sujata.demo.Calculator;
+import com.sujata.exception.NegativeNumberException;
 
 class CalculatorTest {
 
@@ -26,14 +27,34 @@ class CalculatorTest {
 	}
 
 	@Test
-	void r001T001() {
+	void r001T001() throws NegativeNumberException {
 		//assertEquals(expected,function call)
 		assertEquals(6, calculator.divide(12, 2));
 		
 	}
 	
-	void r001T005() {
-		assertEquals(0, calculator.divide(0, 5));
+	@Test
+	void r001T002()throws NegativeNumberException{
+		assertThrows(NegativeNumberException.class, ()->calculator.divide(-12, 2));
+	}
+	
+	@Test
+	void r001T003()throws NegativeNumberException{
+		assertThrows(NegativeNumberException.class, ()->calculator.divide(12, -2));
 	}
 
+	@Test
+	void r001T004()throws NegativeNumberException{
+		assertThrows(NegativeNumberException.class, ()->calculator.divide(-12, -2));
+	}
+	@Test
+	void r001T005() throws NegativeNumberException {
+		assertEquals(0, calculator.divide(0, 5));
+	}
+	
+
+	@Test
+	void r001T006()throws NegativeNumberException{
+		assertThrows(ArithmeticException.class, ()->calculator.divide(5, 0));
+	}
 }
