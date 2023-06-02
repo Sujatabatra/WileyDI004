@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="dataAccess"
+		class="com.sujata.employee.persistence.EmployeeDataAccessImpl"></bean>
+		
+	<bean id="service" class="com.sujata.employee.service.EmployeeBussinessLogicImpl">
+		<constructor-arg name="dataAccess" ref="dataAccess"></constructor-arg>
+	</bean>
+
+	<bean id="userInterface"
+	class="com.sujata.employee.presentation.EmployeeUserInterfaceImpl">
+		<constructor-arg name="bussinessLogic" ref="service"></constructor-arg>
+	</bean>
+</beans>
