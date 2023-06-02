@@ -1,0 +1,8 @@
+1. create Java Project
+2. add components(Java interfaces and classes) as per need.
+3. convert into maven project
+4. add spring context depedency
+5. create configuration file (*.xml)
+6. create beans for all the components whoes life cycle you want spring container should maintain
+7. create SpringContainer by instantiating the object of ApplicationContext
+8. call ur components with getBean() method of ApplicationContext
