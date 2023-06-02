@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="guitar" class="com.sujata.demo.Guitar"></bean>
+	
+	<bean id="drum" class="com.sujata.demo.Drum"></bean>
+	
+	<bean id="tabla" class="com.sujata.demo.Tabla"></bean>
+	
+	<bean id="Lilly" class="com.sujata.demo.Instrumentalist">
+		<property name="instrument" ref="guitar"></property>
+	</bean>
+	
+	<bean id="Rosie" class="com.sujata.demo.Instrumentalist">
+		<property name="instrument" ref="drum"></property>
+	</bean>
+	
+	<bean id="LondonAudi" class="com.sujata.demo.Auditorium">
+		<constructor-arg ref="Dominique"></constructor-arg>
+	</bean>
+	
+	<bean id="Chiara" class="com.sujata.demo.Singer">
+		<property name="song" value="Laula By"></property>
+	</bean>
+	
+	<bean id="Dominique" class="com.sujata.demo.Singer">
+		<property name="song" value="Any Song"></property>
+	</bean>
+</beans>
