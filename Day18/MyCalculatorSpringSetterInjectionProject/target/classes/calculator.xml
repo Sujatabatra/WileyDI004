@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+<!-- Spring Container creating the object with default constructor -->
+	<bean id="add" class="com.sujata.demo.Sum"></bean>
+	
+	<bean id="subtract" class="com.sujata.demo.Difference"></bean>
+	
+	<bean id="multiply" class="com.sujata.demo.Product"></bean>
+	
+	<!-- Setter Dependency Injection: Injection values with constuctor -->
+	<bean id="sumCalculator" class="com.sujata.training.Calculator">
+		<property name="operator" ref="add"></property>
+	</bean>
+	
+	<bean id="multiplyCalculator" class="com.sujata.training.Calculator">
+		<property name="operator" ref="multiply"></property>
+	</bean>
+</beans>
