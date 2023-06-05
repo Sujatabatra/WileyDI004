@@ -1,0 +1,76 @@
+
+
+Clone your remote repository
+	git clone
+check status
+	git status
+complete your project work
+go to terminal and check the status
+	git status
+add all your work to local repository
+	git add .
+check git status
+	git status
+Commit to your local repository
+	git commit -m "commit message"
+Check status
+	git status
+push to your remote repository
+	git push main
+
+note:- please be on the same terminal of path where you clone your repository.
+	Update your local repository with pulling changes before commiting.
+
+Types of Git Merge Conflicts 
+There are two points when a merge can enter a conflicted state:
+
+1. Starting the Merge Process 
+If there are changes in the working directory’s stage area for the current project, merging won’t start. 
+
+In this case, conflicts happen due to pending changes that need to be stabilized using different Git commands.
+
+2. During the Merge Process
+The failure during the merge process indicates that there is a conflict between the local branch and the branch being merged.
+
+In this case, Git resolves as much as possible, but there are things that have to be resolved manually in the conflicted files.
+
+We will now go over resolving merge conflicts in Git.
+
+How to Resolve Merge Conflicts in Git?
+There are a few steps that could reduce the steps needed to resolve merge conflicts in Git.
+
+The easiest way to resolve a conflicted file is to open it and make any necessary changes.
+After editing the file, we can use the git add a command to stage the new merged content.
+The final step is to create a new commit with the help of the git commit command.
+Git will create a new merge commit to finalize the merge.
+Let us now look into the Git commands that may play a significant role in resolving conflicts.
+
+Git Commands to Resolve Conflicts
+1. git log --merge 
+The git log --merge command helps to produce the list of commits that are causing the conflict.
+
+2. git diff 
+The git diff command helps to identify the differences between the states repositories or files.
+
+3. git checkout 
+The git checkout command is used to undo the changes made to the file, or for changing branches.
+
+4. git reset --mixed 
+The git reset --mixed command is used to undo changes to the working directory and staging area.
+
+5. git merge --abort
+The git merge --abort command helps in exiting the merge process and returning back to the state before the merging began.
+
+6. git reset
+The git reset command is used at the time of merge conflict to reset the conflicted files to their original state.
+
+
+7 Git Best Practices to Start Using in Your Next Commit
+
+1. Don’t git push straight to master. Branch it out!
+2. Adequately configure the commit authorship.
+3. Write descriptive and meaningful commit messages.
+4. Commit only related work
+5. Avoid rewriting the master’s history.
+6. Rebase your working branch frequently.
+7. Know the tool. Don’t be afraid of using it
