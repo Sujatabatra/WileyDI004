@@ -1,0 +1,34 @@
+drop table student;
+drop table course ;
+
+create table course(
+courseid int primary key,
+coursename varchar(25));
+
+insert into course
+values(1,"Computer Science"),
+(2,"Medicine"),
+(3,"Information Technology"),
+(4,"Dentistry");
+
+create table student(
+rollNo int primary key,
+name varchar(20),
+dob date,
+courseid int,
+constraint foreign key(courseid) REFERENCES course(courseid) on update cascade on delete set null
+);
+
+insert into student
+values(1,"AAAAA","2002-10-12",3),
+(2,"BBBB","2001-11-15",2),
+(3,"CCCC","2004-8-11",3),
+(4,"DDDD","2001-3-5",1),
+(5,"EEEE","2001-7-12",1);
+
+select * from course;
+
+select * from student;
+
+delete from course
+where courseid=1;
