@@ -39,3 +39,34 @@ select
 empName,salary,(salary+100)*12
 from employee;
 
+select * from employee;
+
+select 
+concat(empName," works in ",deptt," department and gets salary = ",salary) "Employee Details"
+from employee;
+/*
+display employeename, 
+basic salary, 
+allowances=18% of basic salary
+deductions =12% of basic salary
+net salary = basic+allowances - deduction
+*/
+
+select 
+empName,
+salary "Basic Salary",
+.18*salary "Allowances",
+.12*salary "Deductions",
+salary+.18*salary-.12*salary "Net Salary"
+from employee;
+
+/*
+Failed Query
+select 
+empName,
+salary "Basic Salary",
+.18*salary "Allowances",
+.12*salary "Deductions",
+salary+Allowances-Deductions "Net Salary"
+from employee;
+*/
