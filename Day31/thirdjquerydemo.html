@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script>
+        function add(){
+            var no1=parseInt($("#number1").val());
+            var no2=parseInt($("#number2").val());
+            var sum=no1+no2;
+            $("#result").text("Sum : "+sum);
+        }
+
+        function minus(){
+            var no1=parseInt($("#number1").val());
+            var no2=parseInt($("#number2").val());
+            var diff=no1-no2;
+            $("#result").text("Difference : "+diff);
+        }
+        $(document).ready(function(){
+            $("#sum").click(add);
+            $("#diff").click(minus);
+        })
+    </script>
+</head>
+<body>
+
+    <h1> Calculator</h1>
+    Enter First Number : <input type="text" id="number1"><br><br>
+    Enter Second Number : <input type="text" id="number2"><br><br>
+    <input type="button" value="Sum" id="sum">
+    <input type="button" value="Difference" id="diff"><br><br>
+    <div id="result"></div>
+</body>
+</html>
