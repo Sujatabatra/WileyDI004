@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+        $(function(){
+            $("#tabs").tabs();
+        })
+
+        $(document).ready(function(){
+            $("#displayAllLink").click(function(){
+                $.ajax({url:"https://dummyjson.com/products",
+                type: "GET",
+                success:function(data){
+                    $("#showAllProducts").html(displayAllProducts(data))
+                },
+                dataType:"json"});
+            })
+        })
+
+        $(document).ready(function(){
+            $("#search").click(function(){
+                $.ajax({url:"https://dummyjson.com/products/"+$("#productId").val(),
+                type: "GET",
+                success:function(data){
+                    $("#showProduct").html(displayProduct(data))
+                },
+                dataType:"json"
+                })
+            })
+        })
+        function displayAllProducts(data){
+            var table="<table border=\"1\"><tr><th>ProductID</th><th>Name</th><th>Description</th><th>Price</th><th>Rating</th></tr>"
+                for(var index=0;index<10;index++){
+                    table+="<tr><td>"+data.products[index].id+"</td><td>"+data.products[index].title+"</td><td>"+data.products[index].description+"</td><td>"+data.products[index].price+"</td><td>"+data.products[index].rating+"</td></tr>";
+                }
+                table+="</table>"
+                return table;
+            }
+            function displayProduct(data){
+            var table="<table border=\"1\"><tr><th>ProductID</th><th>Name</th><th>Description</th><th>Price</th><th>Rating</th></tr>"
+                
+                    table+="<tr><td>"+data.id+"</td><td>"+data.title+"</td><td>"+data.description+"</td><td>"+data.price+"</td><td>"+data.rating+"</td></tr>";
+                
+                table+="</table>"
+                return table;
+            }
+    </script>
+</head>
+<body>
+    <div id="tabs">
+        <ul>
+            <li><a href="#tab-1">Display All Products</a></li>
+            <li><a href="#tab-2">Search Product By ID</a></li>
+        </ul>
+        <div id="tab-1">
+                <a id="displayAllLink" href="#">Display All Products</a>
+                <div id="showAllProducts"> </div>
+                
+        </div>
+        <div id="tab-2">
+                Enter Product ID <input type="text" id="productId"><br><br>
+                <input type="button" value="Search Product" id="search">
+                <div id="showProduct">
+
+                </div>
+        </div>
+    </div>
+</body>
+</html>
