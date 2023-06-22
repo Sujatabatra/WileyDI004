@@ -93,4 +93,76 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
 		return 0;
 	}
+
+	@Override
+	public int deleteRecord(int id) {
+		Connection connection = null;
+		PreparedStatement preparedStatement;
+		Scanner scanner = new Scanner(System.in);
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+
+			connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/wileydi004", "root", "sujata");
+
+			preparedStatement = connection.prepareStatement("DELETE FROM EMPLOYEE WHERE EMPID=?");
+
+			preparedStatement.setInt(1, id);
+			
+
+			int rows = preparedStatement.executeUpdate();
+
+			return rows;
+
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			return 0;
+		} finally {
+			try {
+//				4.Close Connection
+				connection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
+		return 0;
+	}
+
+	@Override
+	public int updateRecord(int id, int increment) {
+		Connection connection = null;
+		PreparedStatement preparedStatement;
+		Scanner scanner = new Scanner(System.in);
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+
+			connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/wileydi004", "root", "sujata");
+
+			String query="UPDATE EMPLOYEE SET SALARY=SALARY+"+increment+" where EMPID="+id;
+			preparedStatement = connection.prepareStatement(query);
+			
+			int rows = preparedStatement.executeUpdate();
+
+			return rows;
+
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			return 0;
+		} finally {
+			try {
+//				4.Close Connection
+				connection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
+		return 0;
+	}
 }

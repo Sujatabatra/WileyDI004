@@ -15,7 +15,9 @@ public class EmployeeUserInterfaceImpl implements EmployeeUserInterface {
 	public void showMenu() {
 		System.out.println("1. Show All Employees");
 		System.out.println("2. Add new Employee");
-		System.out.println("3. Exit");
+		System.out.println("3. Delete Employee By ID");
+		System.out.println("4. Increment Salary of an Employee");
+		System.out.println("5. Exit");
 
 	}
 
@@ -50,6 +52,26 @@ public class EmployeeUserInterfaceImpl implements EmployeeUserInterface {
 			
 			break;
 		case 3:
+			System.out.println("Enter Employee ID : ");
+			int id=scanner.nextInt();
+
+			if(employeeService.deleteEmployeeById(id))
+				System.out.println("Employee Deleted");
+			else
+				System.out.println("Employee Not Deleted");
+			break;
+		case 4:
+			System.out.println("Enter Employee ID : ");
+			int eId=scanner.nextInt();
+			System.out.println("Enter Increment Amount : ");
+			int incrementAmount=scanner.nextInt();
+			
+			if(employeeService.incrementEmployeeSalary(eId, incrementAmount))
+				System.out.println("Salary Incremented Successfully");
+			else
+				System.out.println("Unable to process salary increment");
+			break;
+		case 5:
 			System.out.println("Thanks for using Employee Management System");
 			System.exit(0);
 		default:
