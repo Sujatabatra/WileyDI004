@@ -7,4 +7,5 @@ import com.sujata.employee.entity.Employee;
 public interface EmployeeDao {
 
 	List<Employee> getAllRecords();
+	int addRecord(Employee employee);
 }

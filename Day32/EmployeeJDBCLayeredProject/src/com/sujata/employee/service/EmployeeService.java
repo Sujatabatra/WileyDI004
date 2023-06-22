@@ -7,4 +7,6 @@ import com.sujata.employee.entity.Employee;
 public interface EmployeeService {
 
 	List<Employee> getAllEmployees();
+	
+	boolean addEmployee(Employee employee);
 }
