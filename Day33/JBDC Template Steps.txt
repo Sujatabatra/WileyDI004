@@ -1,0 +1,7 @@
+1. Add Spring JDBC Depedency in POM.xml
+2. Create DriverManagerDataSource object and JdbcTemplate Object in configuration class
+3. Create JdbcTemplate instance variable in DaoImpl class
+4. Create a class by implementing RowMapper interface to map table row with java object.
+5. Use @Autowired on JdbcTemplateVariable either using constructor injection or setter injection
+6. write function of JdbcTemplate by writing different queries to get the result.
+for example update() function for all dml queries and query() function for DQL query
