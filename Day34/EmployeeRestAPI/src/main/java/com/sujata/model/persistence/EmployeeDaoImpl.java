@@ -1,5 +1,7 @@
 package com.sujata.model.persistence;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -21,6 +23,12 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		catch(EmptyResultDataAccessException ex) {
 			return null;
 		}
+	}
+
+	@Override
+	public List<Employee> getAllRecords() {
+		
+		return jdbcTemplate.query("SELECT * FROM EMPLOYEE", new EmployeeRowMapper());
 	}
 
 }

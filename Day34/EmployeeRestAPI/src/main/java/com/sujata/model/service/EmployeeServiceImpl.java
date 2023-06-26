@@ -1,5 +1,7 @@
 package com.sujata.model.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +17,11 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Override
 	public Employee searchEmployeeById(int id) {
 		return employeeDao.getRecordById(id);
+	}
+
+	@Override
+	public List<Employee> getAllEmployees() {
+		return employeeDao.getAllRecords();
 	}
 
 }
