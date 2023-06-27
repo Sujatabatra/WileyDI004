@@ -29,4 +29,14 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return employeeDao.saveRecord(employee)>0;
 	}
 
+	@Override
+	public Employee deleteEmployee(int id) {
+		Employee employee=searchEmployeeById(id);
+		
+		if(employee!=null)
+			employeeDao.deleteRecord(id);
+		
+		return employee;
+	}
+
 }

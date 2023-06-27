@@ -9,4 +9,5 @@ public interface EmployeeService {
 	public Employee searchEmployeeById(int id);
 	public List<Employee> getAllEmployees();
 	public boolean insertEmployee(Employee employee);
+	public Employee deleteEmployee(int id);
 }

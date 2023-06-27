@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -53,11 +54,33 @@ public class EmployeeResource {
 			return new ResponseEntity<EmployeeList>(employeeList,HttpStatus.NO_CONTENT);
 	}
 	
+//	@PostMapping(path = "/employees",produces = MediaType.APPLICATION_JSON_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE)
+//	public Employee insertEmployeeResource(@RequestBody Employee employee) {
+//		if(employeeService.insertEmployee(employee))
+//			return employee;
+//		else
+//			return null;
+//	}
+	
 	@PostMapping(path = "/employees",produces = MediaType.APPLICATION_JSON_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE)
-	public Employee insertEmployeeResource(@RequestBody Employee employee) {
+	public ResponseEntity<Employee> insertEmployeeResource(@RequestBody Employee employee) {
 		if(employeeService.insertEmployee(employee))
-			return employee;
+			return new ResponseEntity<Employee>(employee, HttpStatus.CREATED);
 		else
-			return null;
+			return new ResponseEntity<Employee>(HttpStatus.NOT_ACCEPTABLE);
+	}
+	
+//	@DeleteMapping(path = "/employees/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
+//	public Employee deleteEmployeeResource(@PathVariable int id) {
+//		return employeeService.deleteEmployee(id);
+//	}
+	
+	@DeleteMapping(path = "/employees/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Employee> deleteEmployeeResource(@PathVariable int id) {
+		Employee employee=employeeService.deleteEmployee(id);
+		if(employee!=null)
+			return new ResponseEntity<Employee>(employee, HttpStatus.OK);
+		else
+			return new ResponseEntity<Employee>(HttpStatus.NO_CONTENT);
 	}
 }

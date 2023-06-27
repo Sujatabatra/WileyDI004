@@ -9,4 +9,5 @@ public interface EmployeeDao {
 	public Employee getRecordById(int id);
 	public List<Employee> getAllRecords();
 	public int saveRecord(Employee employee);
+	public int deleteRecord(int empId);
 }
