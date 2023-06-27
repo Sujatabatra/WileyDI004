@@ -10,4 +10,5 @@ public interface EmployeeService {
 	public List<Employee> getAllEmployees();
 	public boolean insertEmployee(Employee employee);
 	public Employee deleteEmployee(int id);
+	public Employee updateEmployeeSlary(int id,int salary);
 }

@@ -10,4 +10,5 @@ public interface EmployeeDao {
 	public List<Employee> getAllRecords();
 	public int saveRecord(Employee employee);
 	public int deleteRecord(int empId);
+	public int updateSalaryofRecord(int empId,int salary);
 }

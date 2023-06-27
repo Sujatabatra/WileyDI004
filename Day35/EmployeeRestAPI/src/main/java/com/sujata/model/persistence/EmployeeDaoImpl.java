@@ -52,4 +52,12 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		}
 	}
 
+	@Override
+	public int updateSalaryofRecord(int empId, int salary) {
+		try {
+			return jdbcTemplate.update("UPDATE EMPLOYEE SET SALARY=? WHERE EMPID=?", salary, empId);
+		} catch (Exception ex) {
+			return 0;
+		}
+	}
 }

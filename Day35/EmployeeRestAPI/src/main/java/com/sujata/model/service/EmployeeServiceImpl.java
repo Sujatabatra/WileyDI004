@@ -39,4 +39,11 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return employee;
 	}
 
+	@Override
+	public Employee updateEmployeeSlary(int id, int salary) {
+		if(employeeDao.updateSalaryofRecord(id, salary)>0)
+			return searchEmployeeById(id);
+		return null;
+	}
+
 }
