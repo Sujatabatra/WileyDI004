@@ -28,12 +28,22 @@ public class EmployeeServiceImpl implements EmployeeService {
 	public List<Employee> getAllEmployees() {
 		
 		return employeeDao.findAll();
+		
+		
 	}
 
 	@Override
 	public Employee searchEmployeeById(int empId) {
 		//Optional class : polisged way of dealing with null and orElse is the method of Optional Class, Optional Class introduced in 1.8
 		Employee employee=employeeDao.findById(empId).orElse(null);
+		return employee;
+	}
+
+	@Override
+	public Employee deleteEmployeeById(int empId) {
+		Employee employee=searchEmployeeById(empId);
+		if(employee!=null)
+			employeeDao.deleteById(empId);
 		return employee;
 	}
 

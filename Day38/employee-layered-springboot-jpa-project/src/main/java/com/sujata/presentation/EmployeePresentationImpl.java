@@ -21,7 +21,8 @@ public class EmployeePresentationImpl implements EmployeePresentation {
 		System.out.println("1. Add New Employee");
 		System.out.println("2. List All Employees ");
 		System.out.println("3. Search Employee By ID");
-		System.out.println("4. Exit");
+		System.out.println("4. Delete Employee By ID");
+		System.out.println("5. Exit");
 
 	}
 
@@ -65,6 +66,14 @@ public class EmployeePresentationImpl implements EmployeePresentation {
 				System.out.println("Employee with id "+id+" does not exist");
 			break;
 		case 4:
+			System.out.println("Enter Employee ID : ");
+			int empId=scanner.nextInt();
+			if(employeeService.deleteEmployeeById(empId)!=null)
+				System.out.println("Employee Deleted with id "+empId);
+			else
+				System.out.println("Employee with id "+empId+" does not exist");
+			break;
+		case 5:
 			System.out.println("Thanks for using Employee Management System");
 			System.exit(0);
 		default:
