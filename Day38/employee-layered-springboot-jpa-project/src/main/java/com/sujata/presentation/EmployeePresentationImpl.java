@@ -22,7 +22,8 @@ public class EmployeePresentationImpl implements EmployeePresentation {
 		System.out.println("2. List All Employees ");
 		System.out.println("3. Search Employee By ID");
 		System.out.println("4. Delete Employee By ID");
-		System.out.println("5. Exit");
+		System.out.println("5. Increment Employee Salary");
+		System.out.println("6. Exit");
 
 	}
 
@@ -74,6 +75,19 @@ public class EmployeePresentationImpl implements EmployeePresentation {
 				System.out.println("Employee with id "+empId+" does not exist");
 			break;
 		case 5:
+			System.out.println("Enter Employee ID : ");
+			int eId=scanner.nextInt();
+			System.out.println("Enter Increment Amount :");
+			int incrementAmount=scanner.nextInt();
+			Employee incrementedSalariedEmployee=employeeService.incrementEmployeeSalary(eId, incrementAmount);
+			if(incrementedSalariedEmployee!=null) {
+				System.out.print("After Increment Employee Details : ");
+				System.out.println(incrementedSalariedEmployee);
+			}
+			else
+				System.out.println("Employee with id "+eId+" does not exist for salary increment");
+			break;
+		case 6:
 			System.out.println("Thanks for using Employee Management System");
 			System.exit(0);
 		default:
