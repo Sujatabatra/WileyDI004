@@ -43,7 +43,7 @@ public class EmployeeController {
 
 		return modelAndView;
 	}
-	
+
 	@RequestMapping("/InputEmployeeDetails")
 	public ModelAndView InputEmployeeDetailsPageController() {
 		return new ModelAndView("InputEmployeeDetails");
@@ -58,24 +58,44 @@ public class EmployeeController {
 		modelAndView.setViewName("DisplayAllEmployees");
 		return modelAndView;
 	}
-	
+
 	@RequestMapping("/saveEmployee")
 	public ModelAndView saveEmployeeController(HttpServletRequest request) {
-		ModelAndView modelAndView=new ModelAndView();
-		int empId=Integer.parseInt(request.getParameter("eId"));
-		String empName=request.getParameter("eName");
-		String empDesignation=request.getParameter("eDesignation");
-		String empDepartment=request.getParameter("eDepartment");
-		double empSalary=Double.parseDouble(request.getParameter("eSalary"));
-		
-		Employee employee=new Employee(empId, empName, empDesignation, empDepartment, empSalary);
-		
-		String message=null;
-		if(employeeService.addEmployee(employee))
-			message="Employee Added";
+		ModelAndView modelAndView = new ModelAndView();
+		int empId = Integer.parseInt(request.getParameter("eId"));
+		String empName = request.getParameter("eName");
+		String empDesignation = request.getParameter("eDesignation");
+		String empDepartment = request.getParameter("eDepartment");
+		double empSalary = Double.parseDouble(request.getParameter("eSalary"));
+
+		Employee employee = new Employee(empId, empName, empDesignation, empDepartment, empSalary);
+
+		String message = null;
+		if (employeeService.addEmployee(employee))
+			message = "Employee Added";
 		else
-			message="Employee Not Added";
-		
+			message = "Employee Not Added";
+
+		modelAndView.addObject("message", message);
+		modelAndView.setViewName("Output");
+
+		return modelAndView;
+	}
+
+	@RequestMapping("/InputEmpIDPageForDelete")
+	public ModelAndView inputEmpIdPageForDeleteController() {
+		return new ModelAndView("InputEmpIdForDelete");
+	}
+
+	@RequestMapping("/deleteEmp")
+	public ModelAndView deleteEmployeeController(HttpServletRequest request) {
+		ModelAndView modelAndView = new ModelAndView();
+		String message = null;
+		if (employeeService.deleteEmployeeById(Integer.parseInt(request.getParameter("eId")))) {
+			message = "Employee with id " + request.getParameter("eId") + " deleted !";
+		} else {
+			message = "Employee with id " + request.getParameter("eId") + " not deleted !";
+		}
 		modelAndView.addObject("message", message);
 		modelAndView.setViewName("Output");
 		

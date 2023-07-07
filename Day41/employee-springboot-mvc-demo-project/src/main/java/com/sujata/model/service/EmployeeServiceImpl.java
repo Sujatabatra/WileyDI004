@@ -34,4 +34,14 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return false;
 	}
 
+	@Override
+	public boolean deleteEmployeeById(int empId) {
+		Employee emp=getEmployeeById(empId);
+		if(emp!=null) {
+			employeeDao.deleteById(empId);
+			return true;
+		}
+		return false;
+	}
+
 }
