@@ -24,4 +24,14 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return employeeDao.findAll();
 	}
 
+	@Override
+	public boolean addEmployee(Employee employee) {
+		Employee emp=getEmployeeById(employee.getEmpId());
+		if(emp==null) {
+			employeeDao.save(employee);
+			return true;
+		}
+		return false;
+	}
+
 }

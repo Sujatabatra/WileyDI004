@@ -8,4 +8,5 @@ public interface EmployeeService {
 
 	Employee getEmployeeById(int empId);
 	List<Employee> getAllEmployees();
+	boolean addEmployee(Employee employee);
 }
