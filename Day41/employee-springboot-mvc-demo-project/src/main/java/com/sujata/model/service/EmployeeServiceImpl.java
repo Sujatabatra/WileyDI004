@@ -26,12 +26,22 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public boolean addEmployee(Employee employee) {
-		Employee emp=getEmployeeById(employee.getEmpId());
-		if(emp==null) {
-			employeeDao.save(employee);
+		try {
+		if(employeeDao.insertEmployee(employee.getEmpId(), 
+				employee.getEmpName(), 
+				employee.getEmpDesignation(), employee.getEmpDepartment(), employee.getEmpSalary())>0)
 			return true;
 		}
+		catch(Exception ex) {
+			return false;
+		}
 		return false;
+//		Employee emp=getEmployeeById(employee.getEmpId());
+//		if(emp==null) {
+//			employeeDao.save(employee);
+//			return true;
+//		}
+//		return false;
 	}
 
 	@Override
