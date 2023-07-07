@@ -101,4 +101,24 @@ public class EmployeeController {
 		
 		return modelAndView;
 	}
+	
+	@RequestMapping("/InputEmpDetailsPageForUpdate")
+	public ModelAndView InputEmpDetailsPageForUpdateController(){
+		return new ModelAndView("InputEmpDetailsForUpdate");
+	}
+	
+	
+	@RequestMapping("/updateEmpSalary")
+	public ModelAndView updateEmployeeSalaryController(HttpServletRequest request) {
+		
+		String message=null;
+		int empId=Integer.parseInt(request.getParameter("eId"));
+		double incrementAmount=Double.parseDouble(request.getParameter("amount"));
+		if(employeeService.incrementSalary(empId, incrementAmount))
+			message="Salary Incremented for Employee ID "+request.getParameter("eId");
+		else
+			message="Salary Incremented for Employee ID "+request.getParameter("eId");
+		
+		return new ModelAndView("Output", "message", message);
+	}
 }

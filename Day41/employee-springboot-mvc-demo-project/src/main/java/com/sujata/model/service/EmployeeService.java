@@ -10,4 +10,5 @@ public interface EmployeeService {
 	List<Employee> getAllEmployees();
 	boolean addEmployee(Employee employee);
 	boolean deleteEmployeeById(int empId);
+	boolean incrementSalary(int empId,double incrementAmount);
 }

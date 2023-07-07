@@ -44,4 +44,20 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return false;
 	}
 
+	@Override
+	public boolean incrementSalary(int empId, double incrementAmount) {
+		
+		if(employeeDao.updateSalaryByEmpId(empId, incrementAmount)>0)
+			return true;
+		else
+			return false;
+//		Employee employee=getEmployeeById(empId);
+//		if(employee!=null) {
+//			employee.setEmpSalary(employee.getEmpSalary()+incrementAmount);
+//			employeeDao.save(employee);
+//			return true;
+//		}
+//		return false;
+	}
+
 }
