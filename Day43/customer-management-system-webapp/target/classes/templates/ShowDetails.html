@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Customer Details</h1>
+<table border="1">
+	<tr>
+		<th>Customer ID</th>
+		<th>Share Name</th>
+		<th>Share Type</th>
+		<th>Quantity</th>
+		<th>Unit Price</th>
+		<th>Total Valuation</th>
+	</tr>
+	<tr th:each="customer : ${customerDetailsList}">
+		<td th:text="${customer.customerId}"></td>
+		<td th:text="${customer.shareName}"></td>
+		<td th:text="${customer.shareType}"></td>
+		<td th:text="${customer.quantity}"></td>
+		<td th:text="${customer.unitPrice}"></td>
+		<td th:text="${customer.totalValuation}"></td>
+	</tr>
+</table>
+</body>
+</html>
