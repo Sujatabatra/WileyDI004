@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Employee Management System</h1>
+	<hr>
+	<h2 th:text="'Welcome '+${session.user.userName}+'!'"></h2>
+	<hr>
+	<form action="./updateEmpSalary">
+		Enter Employee ID : <input type="text" name="eId"><br>
+		<br> Enter Increment Amount : <input type="text" name="amount"><br>
+		<br> <input type="submit" value="Increment Salary">
+	</form>
+	<br><br>
+	<a href="/menuPage">GoTo Main Page</a>
+</body>
+</html>
